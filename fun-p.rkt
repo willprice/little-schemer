@@ -1,7 +1,7 @@
 #lang racket/base
 
 (require "set-p.rkt"
-         "firsts.rkt")
+         "lists.rkt")
 
 (define fun?
   (lambda (rel)
