@@ -1,7 +1,6 @@
 #lang racket/base
 (require "atom.rkt")
-(require "eqan.rkt")
-(require "eqlist.rkt")
+(require "equality.rkt")
 
 (define my-equal?
   (lambda (s1 s2)
