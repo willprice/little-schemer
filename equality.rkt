@@ -1,10 +1,10 @@
 #lang racket/base
-(require "atom.rkt")
+(require "primitives.rkt")
 
 (provide
   eqan?
   eqlist?
-  equal?)
+  my-equal?)
 
 (define eqan?
   (lambda (a1 a2)
@@ -24,3 +24,11 @@
       ((or (atom? (car l1)) (atom? (car l2))) #f)
       (else (and (eqlist? (car l1) (car l2))
                  (eqlist? (cdr l1) (cdr l2)))))))
+
+(define my-equal?
+  (lambda (s1 s2)
+    (cond
+      ((and (atom? s1) (atom? s2)) (eqan? s1 s2))
+      ((or (atom? s1) (atom? s2)) #f)
+      (else (eqlist? s1 s2)))))
+

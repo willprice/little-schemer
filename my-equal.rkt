@@ -1,5 +1,5 @@
 #lang racket/base
-(require "atom.rkt")
+(require "primitives.rkt")
 (require "equality.rkt")
 
 (define my-equal?

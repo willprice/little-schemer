@@ -1,6 +1,6 @@
 #lang racket/base
 
-(require "atom.rkt")
+(require "primitives.rkt")
 (provide
   a-pair?
   first

@@ -1,12 +1,13 @@
 #lang racket/base
 
-(require "atom.rkt")
+(require "primitives.rkt")
 (provide firsts
          rember*
          occur*
          insertR*
          insertL*
-         member*)
+         member*
+         length)
 
 (define firsts
   (lambda (l)
@@ -88,6 +89,12 @@
     (cond
       ((atom? (car l)) (car l))
       (else (leftmost (car l))))))
+
+(define length
+  (lambda (l)
+    (cond
+      ((null? l) 0)
+      (else (add1 (length (cdr l)))))))
 
 ; TODO: Test
 (define third
