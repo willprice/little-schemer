@@ -106,3 +106,7 @@
   (check-equal? (length '(a)) 1)
   (check-equal? (length '(a b)) 2)
   (check-equal? (length '(a b c d)) 4))
+
+(test-case
+  "third"
+  (check-equal? (third '(a b c)) 'c))

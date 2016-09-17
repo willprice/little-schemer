@@ -9,7 +9,8 @@
          subst*
          member*
          leftmost
-         length)
+         length
+         third)
 
 (define firsts
   (lambda (l)
@@ -98,7 +99,6 @@
       ((null? l) 0)
       (else (add1 (length (cdr l)))))))
 
-; TODO: Test
 (define third
   (lambda (l)
     (car (cdr (cdr l)))))
