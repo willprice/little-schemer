@@ -94,6 +94,13 @@
   (check-equal? (member* 'chips '((potato (chips ((with) fish)) (chips)))) #t))
 
 (test-case
+  "leftmost"
+  (check-equal? (leftmost '(a)) 'a)
+  (check-equal? (leftmost '(b a)) 'b)
+  (check-equal? (leftmost '((a) b)) 'a)
+  (check-equal? (leftmost '(((a)) b)) 'a))
+
+(test-case
   "length"
   (check-equal? (length '()) 0)
   (check-equal? (length '(a)) 1)

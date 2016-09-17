@@ -8,6 +8,7 @@
          insertL*
          subst*
          member*
+         leftmost
          length)
 
 (define firsts
