@@ -57,13 +57,13 @@ We assume the existence of the following functions:
 ### Derived
 We write a lot of functions using the primitive functions we've been given.
 
-#### Equality lambdas
+#### [Equality lambdas](equality.rkt)
 * `(eq? a1 a2)` - Checks equality of non-numeric atoms. (builtin)
 * `(eqan? a1 a2)` - Checks equality of atoms and numbers.
 * `(eqlist? l1 l2)` - Checks equality of two lists.
 * `(equal? s1 s2)` - Checks equality of two S-expressions. (builtin)
 
-#### List lambdas
+#### [List lambdas](lists.rkt)
 * `(firsts l)`
 * `(length l)`
 * `(rember* a l)`
@@ -77,7 +77,7 @@ We write a lot of functions using the primitive functions we've been given.
 * `(third l)`
 * `(evens-only* l)`
 
-#### Flat list lambdas
+#### [Flat list lambdas](lats.rkt)
 * `(lat? l)`
 * `(member? a lat)`
 * `(rember a lat)`
@@ -96,7 +96,7 @@ We write a lot of functions using the primitive functions we've been given.
 * `(occur a lat)`
 * `(multiinsertLR new oldL oldR lat)`
 
-#### Number lambdas
+#### [Number lambdas](numbers.rkt)
 * `(+ n m)`
 * `(- n m)`
 * `(× n m)` (note this is a unicode multiplication sign and not the letter x)
@@ -107,7 +107,7 @@ We write a lot of functions using the primitive functions we've been given.
 * `(÷ n m)`
 * `(one? n)`
 
-#### Arithmetic expression lambdas
+#### [Arithmetic expression lambdas](expressions.rkt)
 * `(numbered? aexp)`
 * `(value nexp)`
 * `(operator nexp)`
@@ -115,13 +115,13 @@ We write a lot of functions using the primitive functions we've been given.
 * `(2nd-sub-exp nexp)`
 * `(atom-to-function x)`
 
-#### Tuple lambdas
+#### [Tuple lambdas](tups.rkt)
 * `(tup? l)`
 * `(addtup tup)`
 * `(tup+ tup1 tup2)`
 
 
-#### Set lambdas
+#### [Set lambdas](sets.rkt)
 * `(set? lat)`
 * `(makeset lat)`
 * `(subset? set1 set2)`
@@ -131,19 +131,19 @@ We write a lot of functions using the primitive functions we've been given.
 * `(union set1 set2)`
 * `(intersectall l-set)`
 
-#### Pair lambdas
+#### [Pair lambdas](pairs.rkt)
 * `(a-pair? x)`
 * `(first p)`
 * `(second p)`
 * `(build s1 s2)`
 * `(revpair p)`
 
-#### Relation lambdas
+#### [Relation lambdas](rels.rkt)
 * `(fun? rel)`
 * `(revrel rel)`
 * `(fullfun? rel)` (aka `one-to-one?`)
 
-#### Higher order lambdas
+#### [Higher order lambdas](higher-order.rkt)
 Where a function returns a function, I have noted the parameters of the
 returned function after a `->` followed by a `_` to represent the anonymous
 function.
@@ -154,7 +154,7 @@ function.
 * `(insertR-f test?) -> (_ new old l)`
 * `(insert-g seq) -> (_ new old l)`
 
-#### Collector lambdas
+#### [Collector lambdas](collectors.rkt)
 * `(multirember&co a lat col)`
     * `(a-friend x y)`
     * `(new-friend x y)`
@@ -163,7 +163,7 @@ function.
 * `(multiinsertLR&co new oldL oldR lat col)`
 * `(evens-only*&co l col)`
 
-#### Misc
+#### [Misc](misc.rkt)
 * `(sero? n)`
 * `(edd1 n)`
 * `(zub1 n)`
