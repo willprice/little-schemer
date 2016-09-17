@@ -1,5 +1,5 @@
 #lang racket/base
-(require "member.rkt")
+(require "lats.rkt")
 
 (define subset?
   (lambda (s1 s2)

@@ -1,5 +1,5 @@
 #lang racket/base
-(require "multirember.rkt")
+(require "lats.rkt")
 
 (define makeset
   (lambda (l)
