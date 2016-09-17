@@ -85,3 +85,10 @@
   (check-equal? (member* 'a '(b a)) #t)
   (check-equal? (member* 'a '((a))) #t)
   (check-equal? (member* 'chips '((potato (chips ((with) fish)) (chips)))) #t))
+
+(test-case
+  "length"
+  (check-equal? (length '()) 0)
+  (check-equal? (length '(a)) 1)
+  (check-equal? (length '(a b)) 2)
+  (check-equal? (length '(a b c d)) 4))
