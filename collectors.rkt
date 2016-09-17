@@ -1,6 +1,7 @@
 #lang racket/base
 (provide
-  multirember&co)
+  multirember&co
+  multiinsertLR&co)
 
 (define multirember&co
   ; This isn't a very well named function as we're not really removing
@@ -26,5 +27,28 @@
                        (col (cons (car lat) newlat)
                             seen)))))))
 
-;(define multiinsertLR&co (a lat col))
+(define multiinsertLR&co
+  (lambda (new oldL oldR lat col)
+    (cond
+      ((null? lat)
+       (col '() 0 0))
+      ((eq? (car lat) oldL)
+       (multiinsertLR&co new oldL oldR (cdr lat)
+                         (lambda (acc leftInsertions rightInsertions)
+                           (col (cons new (cons oldL acc))
+                                (add1 leftInsertions)
+                                rightInsertions))))
+      ((eq? (car lat) oldR)
+       (multiinsertLR&co new oldL oldR (cdr lat)
+                         (lambda (acc leftInsertions rightInsertions)
+                           (col (cons oldR (cons new acc))
+                                leftInsertions
+                                (add1 rightInsertions)))))
+      (else
+        (multiinsertLR&co new oldL oldR (cdr lat)
+                          (lambda (acc leftInsertions rightInsertions)
+                            (col (cons (car lat) acc)
+                                 leftInsertions
+                                 rightInsertions)))))))
+
 ;(define evens-only*&co (l col))
