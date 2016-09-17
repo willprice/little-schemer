@@ -1,6 +1,7 @@
 # The Little Schemer
 
 [![Build Status](https://travis-ci.org/willprice/little-schemer.svg?branch=master)](https://travis-ci.org/willprice/little-schemer)
+[![codecov](https://codecov.io/gh/willprice/little-schemer/branch/master/graph/badge.svg)](https://codecov.io/gh/willprice/little-schemer)
 
 [![The Little Schemer](https://mitpress.mit.edu/sites/default/files/imagecache/booklist_node/9780262560993.jpg)](https://mitpress.mit.edu/books/little-schemer)
 
@@ -57,13 +58,14 @@ We assume the existence of the following functions:
 We write a lot of functions using the primitive functions we've been given.
 
 #### Equality lambdas
-* `(eq? a1 a2)` - Checks equality of non-numeric atoms.
+* `(eq? a1 a2)` - Checks equality of non-numeric atoms. (builtin)
 * `(eqan? a1 a2)` - Checks equality of atoms and numbers.
 * `(eqlist? l1 l2)` - Checks equality of two lists.
-* `(equal? s1 s2)` - Checks equality of two S-expressions.
+* `(equal? s1 s2)` - Checks equality of two S-expressions. (builtin)
 
 #### List lambdas
 * `(firsts l)`
+* `(length l)`
 * `(rember* a l)`
 * `(occur* a l)`
 * `(insertR* new old l)`
@@ -87,7 +89,6 @@ We write a lot of functions using the primitive functions we've been given.
 * `(multiinsertR new old lat)`
 * `(multiinsertL new old lat)`
 * `(multisubst new old lat)`
-* `(length lat)`
 * `(pick n lat)`
 * `(rempick n lat)`
 * `(no-nums lat)`
