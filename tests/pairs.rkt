@@ -20,3 +20,7 @@
 (test-case
   "build"
   (check-equal? (build 'a 'b) '(a b)))
+
+(test-case
+  "revpair"
+  (check-equal? (revpair '(a b)) '(b a)))

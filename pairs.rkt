@@ -5,7 +5,8 @@
   a-pair?
   first
   second
-  build)
+  build
+  revpair)
 
 (define a-pair?
   (lambda (l)
@@ -27,3 +28,7 @@
   (lambda (s1 s2)
     (cons s1
           (cons s2 '()))))
+
+(define revpair
+  (lambda (pair)
+    (build (second pair) (first pair))))
