@@ -79,6 +79,13 @@
                   could pecker chuck wood)))
 
 (test-case
+  "subst*"
+  (check-equal? (subst* 'new 'old '()) '())
+  (check-equal? (subst* 'new 'old '(old)) '(new))
+  (check-equal? (subst* 'new 'old '(old a)) '(new a))
+  (check-equal? (subst* 'new 'old '(old old)) '(new new)))
+
+(test-case
   "member*"
   (check-equal? (member* 'a '()) #f)
   (check-equal? (member* 'a '(a)) #t)

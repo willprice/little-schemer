@@ -6,6 +6,7 @@
          occur*
          insertR*
          insertL*
+         subst*
          member*
          length)
 
