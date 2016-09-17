@@ -29,3 +29,7 @@ before_install:
 
 script:
   - ./test.sh
+
+after_success:
+  - raco pkg install --auto cover cover-codecov
+  - raco cover -f codecov -d $TRAVIS_BUILD_DIR/coverage .
