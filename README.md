@@ -136,11 +136,11 @@ We write a lot of functions using the primitive functions we've been given.
 * `(first p)`
 * `(second p)`
 * `(build s1 s2)`
+* `(revpair p)`
 
 #### Relation lambdas
 * `(fun? rel)`
 * `(revrel rel)`
-* `(revpair rel)`
 * `(fullfun? rel)` (aka `one-to-one?`)
 
 #### Higher order lambdas
