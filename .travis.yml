@@ -32,4 +32,4 @@ script:
 
 after_success:
   - raco pkg install --auto cover cover-codecov
-  - raco cover -f codecov -d $TRAVIS_BUILD_DIR/coverage .
+  - raco cover --format codecov --no-output-for-path tests --directory $TRAVIS_BUILD_DIR/coverage .
