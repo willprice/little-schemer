@@ -110,3 +110,14 @@
 (test-case
   "third"
   (check-equal? (third '(a b c)) 'c))
+
+(test-case
+  "evens-only*"
+  (check-equal? (evens-only* '()) '())
+  (check-equal? (evens-only* '(1)) '())
+  (check-equal? (evens-only* '(2)) '(2))
+  (check-equal? (evens-only* '(1 2)) '(2))
+  (check-equal? (evens-only* '(2 1)) '(2))
+  (check-equal? (evens-only* '(2 1 2 1)) '(2 2))
+  (check-equal? (evens-only* '((2))) '((2)))
+  (check-equal? (evens-only* '((2) (1 2 (3 4)))) '((2) (2 (4)))))

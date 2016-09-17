@@ -1,6 +1,8 @@
 #lang racket/base
 
-(require "primitives.rkt")
+(require "primitives.rkt"
+         "numbers.rkt")
+
 (provide firsts
          rember*
          occur*
@@ -10,7 +12,8 @@
          member*
          leftmost
          length
-         third)
+         third
+         evens-only*)
 
 (define firsts
   (lambda (l)
@@ -103,7 +106,14 @@
   (lambda (l)
     (car (cdr (cdr l)))))
 
-; TODO
 (define evens-only*
   (lambda (l)
-    l))
+    (cond
+      ((null? l) '())
+      ((atom? (car l))
+       (cond
+         ((even? (car l)) (cons (car l) (evens-only* (cdr l))))
+         (else (evens-only* (cdr l)))))
+      (else
+        (cons (evens-only* (car l))
+              (evens-only* (cdr l)))))))
