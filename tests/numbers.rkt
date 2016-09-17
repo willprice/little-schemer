@@ -73,3 +73,11 @@
   "one?"
   (check-equal? (one? 0) #f)
   (check-equal? (one? 1) #t))
+
+(test-case
+  "even?"
+  (check-equal? (even? 0) #t)
+  (check-equal? (even? 1) #f)
+  (check-equal? (even? 2) #t)
+  (check-equal? (even? 3) #f)
+  (check-equal? (even? 4) #t))

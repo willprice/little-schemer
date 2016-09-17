@@ -89,3 +89,7 @@
 (define one?
   (lambda (n)
     (eq? n 1)))
+
+(define even?
+  (lambda (n)
+    (= (* (/ n 2) 2) n)))
