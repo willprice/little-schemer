@@ -174,7 +174,7 @@ function.
 * Add function(s) with associated test suite(s).
 * Run tests with
 ```
-$ make check
+$ ./test.sh
 ```
 * Add an entry to the README with the function, it's signature and purpose.
   Hyperlink the function name to the source of the function.
