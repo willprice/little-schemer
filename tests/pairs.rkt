@@ -24,3 +24,33 @@
 (test-case
   "revpair"
   (check-equal? (revpair '(a b)) '(b a)))
+
+(test-case
+  "shift"
+  (check-equal? (shift '((a b) c)) '(a (b c)))
+  (check-equal? (shift '((a b) (c d))) '(a (b (c d)))))
+
+(test-case
+  "weight*"
+  (check-equal? (weight* 'a) 1)
+  (check-equal? (weight* '(a a)) 2)
+  (check-equal? (weight* '((a a) a)) 3)
+  (check-equal? (weight* '(a (a a))) 3)
+  (check-equal? (weight* '((a a) (a a))) 4))
+
+(test-case
+  "length*"
+  (check-equal? (length* '(a a)) 2)
+  (check-equal? (length* '((a a) a)) 3)
+  (check-equal? (length* '(a (a a))) 3)
+  (check-equal? (length* '((a a) (a a))) 4)
+  (check-equal? (length* '((a (a a)) (a a))) 5))
+
+(test-case
+  "shuffle"
+  (check-equal? (shuffle 'a) 'a)
+  (check-equal? (shuffle '(a b)) '(a b))
+  (check-equal? (shuffle '(a (b c))) '(a (b c)))
+  (check-equal? (shuffle '((a b) c)) '(c (a b))))
+
+

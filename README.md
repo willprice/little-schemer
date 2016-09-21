@@ -24,11 +24,28 @@ Many little exercises with little test suites written in [racket](https://racket
 | *Function*              | `fun`          | A relation where the first element of each pair forms a set                                                      |
 | *Test*                  | `test?`        | A lambda which compares two s expressions for equality                                                           |
 
+### Compound types
+Sometimes we write functions with parameters that take multiple types, there are
+some conventions for these types.
+
+| Paramter naming convention   | Implicit types   |
+| ---------------------------- | ---------------- |
+| `sorn`                       | Symbol, Number   |
+| `pora`                       | Pair, Atom       |
+
+
 ## Lambdas
 ### Naming conventions
 * `*`-lambdas: Recurse over a list.
 * `multi`-lambdas: Recurse over a list performing an action multiple times.
 * `&co`-lambdas: Recurse over a list performing the collector lambda each time.
+
+### Total vs Partial
+(Relevant from chapter 9 onwards)
+
+Total functions are guaranteed to terminate however partial functions may not
+terminate. Total functions are referred to as `natural` and partial as
+`unnatural`.
 
 ### Primitives
 We assume the existence of the following functions:
@@ -95,6 +112,8 @@ We write a lot of functions using the primitive functions we've been given.
 * `(all-nums lat)`
 * `(occur a lat)`
 * `(multiinsertLR new oldL oldR lat)`
+* `(looking a lat)`
+* `(keep-looking a sorn lat)`
 
 #### [Number lambdas](numbers.rkt)
 * `(+ n m)`
@@ -137,6 +156,11 @@ We write a lot of functions using the primitive functions we've been given.
 * `(second p)`
 * `(build s1 s2)`
 * `(revpair p)`
+* `(shift p)`
+* `(length* pora)`
+* `(weight* pora)`
+* `(shuffle pora)` (partial)
+
 
 #### [Relation lambdas](rels.rkt)
 * `(fun? rel)`
@@ -181,3 +205,7 @@ $ ./test.sh
 * Commit with a description of the function added.
 * Rebase onto the main branch.
 
+
+## Addendum
+
+* [Little LISPer (3rd Ed) Exercise answers](http://www.ccs.neu.edu/home/matthias/BTLS/exercises.pdf)

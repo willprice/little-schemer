@@ -16,7 +16,8 @@
          rempick
          no-nums
          all-nums
-         occur)
+         occur
+         looking)
 
 (define lat?
   (lambda (l)
@@ -135,7 +136,7 @@
       ((eq? (car lat) a) (add1 (occur a (cdr lat))))
       (else (occur a (cdr lat))))))
 
-(define multiinsertLR 
+(define multiinsertLR
   (lambda (new oldL oldR lat)
     (cond
       ((null? lat) '())
@@ -144,3 +145,15 @@
       ((eq? (car lat) oldR)
        (cons oldR (cons new (cdr lat))))
       (else (cons (car lat) (multiinsertLR new oldL oldR (cdr lat)))))))
+
+(define looking
+  (lambda (a lat)
+    (keep-looking a (pick 1 lat) lat)))
+
+(define keep-looking
+  (lambda (a sorn lat)
+    (cond
+      ((number? (pick sorn lat))
+       (keep-looking a (pick sorn lat) lat))
+      (else
+        (eq? a (pick sorn lat))))))

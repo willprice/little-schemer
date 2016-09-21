@@ -135,3 +135,10 @@
                 '(new oldL oldR))
   (check-equal? (multiinsertLR 'new 'oldL 'oldR '(oldR oldL))
                 '(oldR new oldL)))
+
+(test-case
+  "looking"
+  (check-equal? (looking 'a '(2 a)) #t)
+  (check-equal? (looking 'a '(2 b)) #f)
+  (check-equal? (looking 'a '(4 a b 2)) #t)
+  (check-equal? (looking 'a '(4 b a 2)) #f))
