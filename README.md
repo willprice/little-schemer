@@ -23,6 +23,7 @@ Many little exercises with little test suites written in [racket](https://racket
 | *Relation*              | `rel`          | A set of pairs                                                                                                   |
 | *Function*              | `fun`          | A relation where the first element of each pair forms a set                                                      |
 | *Test*                  | `test?`        | A lambda which compares two s expressions for equality                                                           |
+| *Expression*            | `e`            | A S expression representing a computation                                                                        |
 
 ### Compound types
 Sometimes we write functions with parameters that take multiple types, there are
@@ -192,6 +193,50 @@ function.
 * `(edd1 n)`
 * `(zub1 n)`
 
+#### [Table lambdas](tables.rkt)
+*Tables* are composed of *entries* which are *pairs* of lists (of the
+same length), the first list is *names*, the second is *values*
+thus representing the binding of names to values.
+
+Lookup lambdas take a `-f` lambda that runs in the case the `name` is
+not found in the entry/table. The lambda is passed the `name` that was
+not found.
+
+* `(new-entry names values)`
+* `(look-up-in-entry name entry entry-f)`
+* `(extend-table entry table)`
+* `(look-in-table name table)`
+
+
+#### [Interpreter lambdas](interpreter.rkt)
+`e` stands for expression.
+
+![`value` dependencies](./media/value-deps.svg)
+
+* `(value e)`
+* `(expression-to-action e)`
+* `(atom-to-action e)`
+* `(list-to-action e)`
+* `(meaning e table)`
+* `(*const e table)`
+* `(*quote e table)`
+* `(*identifier e table)`
+* `(*lambda e table)`
+    * `(table-of non-primitive-lambda)`
+    * `(formals-of non-primitive-lambda)`
+    * `(body-of non-primitive-lambda)`
+* `(*cond e table)`
+* `(*application e table)`
+    * `(function-of e)`
+    * `(arguments-of e)`
+* `(primitive? lambda-meaning)`
+* `(non-primitive? lambda-meaning)`
+* `(initial-table name)`
+* `(evcon lines table)`
+* `(evlis args table)`
+* `(apply-primitive name vals)`
+* `(apply-closure closure vals)`
+* `(apply fun vals)`
 
 ## Contributing
 * Fork the repository.
@@ -205,7 +250,3 @@ $ ./test.sh
 * Commit with a description of the function added.
 * Rebase onto the main branch.
 
-
-## Addendum
-
-* [Little LISPer (3rd Ed) Exercise answers](http://www.ccs.neu.edu/home/matthias/BTLS/exercises.pdf)
